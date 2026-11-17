@@ -197,10 +197,10 @@
     }
 
     /* Sección de Video de Personajes */
-    .video-showcase {
-      margin-top: 3rem;
-      padding-top: 2.5rem;
-      border-top: 2px dashed var(--color-borde);
+    .video-section {
+      padding: 3.5rem 1.5rem 2rem;
+      max-width: 1140px;
+      margin: 0 auto;
     }
 
     .video-title {
@@ -524,6 +524,24 @@
       .card-grid {
         grid-template-columns: 1fr;
       }
+      .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1.5rem;
+      }
+      .footer-left {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+      }
+      .footer-logo {
+        margin: 0 auto;
+      }
+      .footer-copy {
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -539,9 +557,6 @@
         <span class="brand-meta-bullet">/</span>
         <span>FADU UNL</span>
       </div>
-      <div>
-        <span class="tag tag-green">ÁREA TEMÁTICA: DISEÑO DE EXPERIENCIA</span>
-      </div>
     </div>
   </header>
 
@@ -554,7 +569,8 @@
   <main>
     <section class="hero">
       <div class="hero-tags">
-        <span class="tag tag-green">PROGRAMA UNL VERDE</span>
+        <span class="tag tag-green">ÁREA TEMÁTICA: DISEÑO DE EXPERIENCIA</span>
+        <span class="tag tag-outline">PROGRAMA UNL VERDE</span>
         <span class="tag tag-yellow">JARDÍN LA RONDA · SALA 5 AÑOS</span>
       </div>
       
@@ -566,19 +582,6 @@
       <p class="hero-subtitle">
         Diseño de experiencia lúdica sobre gestión de residuos para la sala de 5 años del Jardín La Ronda, en el marco del programa UNL Verde.
       </p>
-
-      <!-- Video de personajes: Ciro, Tacho y Lita -->
-      <div class="video-showcase">
-        <h2 class="video-title">¡Conocé a Ciro, Tacho y Lita!</h2>
-        <div class="video-wrapper">
-          <iframe 
-            src="https://www.youtube-nocookie.com/embed/fwXhj6wt36g?modestbranding=1&rel=0&showinfo=0&iv_load_policy=3" 
-            title="¡Conocé a Ciro, Tacho y Lita!" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            allowfullscreen>
-          </iframe>
-        </div>
-      </div>
     </section>
 
     <!-- Ficha Técnica / Equipo -->
@@ -608,6 +611,19 @@
             <li>DGCV Alejandro Gariglio</li>
           </ul>
         </div>
+      </div>
+    </section>
+
+    <!-- Video de personajes: Ciro, Tacho y Lita (debajo de los nombres) -->
+    <section class="video-section">
+      <h2 class="video-title">¡Conocé a Ciro, Tacho y Lita!</h2>
+      <div class="video-wrapper">
+        <iframe 
+          src="https://www.youtube-nocookie.com/embed/fwXhj6wt36g?modestbranding=1&rel=0&showinfo=0&iv_load_policy=3" 
+          title="¡Conocé a Ciro, Tacho y Lita!" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen>
+        </iframe>
       </div>
     </section>
 
