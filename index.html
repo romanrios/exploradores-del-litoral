@@ -80,6 +80,23 @@
       -webkit-font-smoothing: antialiased;
     }
 
+    /* Banner Full Width de punta a punta */
+    .banner-full-width {
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      line-height: 0;
+      overflow: hidden;
+      background: var(--color-crema);
+      border-bottom: 2px solid var(--color-borde);
+    }
+
+    .banner-full-width img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+    }
+
     /* Tags / Badges en Roboto Mono */
     .tag {
       font-family: var(--font-mono);
@@ -114,7 +131,7 @@
     /* Barra Superior Institucional */
     .top-header {
       border-bottom: 2px solid var(--color-borde);
-      background: rgba(243, 233, 211, 0.92);
+      background: rgba(243, 233, 211, 0.94);
       backdrop-filter: blur(8px);
       position: sticky;
       top: 0;
@@ -146,59 +163,37 @@
       color: var(--color-amarillo);
     }
 
-    /* Hero Principal (Uso exclusivo de Azo Sans en título principal) */
+    /* Hero Principal con Logo */
     .hero {
       padding: 3.5rem 1.5rem 2.5rem;
       max-width: 1140px;
       margin: 0 auto;
     }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.25fr 0.75fr;
-      gap: 2.5rem;
-      align-items: center;
+    .hero-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
     }
 
-    @media (max-width: 860px) {
-      .hero-grid {
-        grid-template-columns: 1fr;
-      }
+    .hero-brand {
+      margin-bottom: 1.5rem;
     }
 
-    .hero-title {
-      font-family: var(--font-display);
-      font-size: clamp(2.5rem, 5.5vw, 4rem);
-      line-height: 1.06;
-      color: var(--color-verde);
-      margin: 1.1rem 0 1.25rem;
-      text-wrap: balance;
-      font-weight: 700;
-      letter-spacing: -0.02em;
+    .hero-logo-img {
+      max-width: min(100%, 460px);
+      height: auto;
+      display: block;
     }
 
     .hero-subtitle {
       font-family: var(--font-body);
-      font-size: 1.22rem;
+      font-size: clamp(1.15rem, 2.2vw, 1.45rem);
       color: var(--color-texto);
-      font-weight: 400;
+      font-weight: 500;
       line-height: 1.55;
-      margin-bottom: 1.8rem;
-    }
-
-    .hero-banner-card {
-      background: #fff;
-      border-radius: 1.5rem;
-      overflow: hidden;
-      box-shadow: 0 16px 36px -12px rgba(74, 124, 90, 0.25);
-      border: 3px solid #fff;
-    }
-
-    .hero-banner-img {
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: cover;
+      max-width: 880px;
     }
 
     /* Ficha Técnica / Créditos */
@@ -207,7 +202,7 @@
       border-top: 2px solid var(--color-borde);
       border-bottom: 2px solid var(--color-borde);
       padding: 2.5rem 1.5rem;
-      margin-top: 1rem;
+      margin-top: 1.5rem;
     }
 
     .credits-inner {
@@ -264,7 +259,6 @@
       margin-bottom: 4rem;
     }
 
-    /* Títulos de sección en Inter con peso fuerte */
     .section-title {
       font-family: var(--font-body);
       font-size: 2.1rem;
@@ -440,7 +434,7 @@
       line-height: 1;
     }
 
-    /* Footer Institucional */
+    /* Footer Institucional sin fondo en el logo */
     footer {
       background: #202b23;
       color: #e4ebe6;
@@ -467,9 +461,7 @@
     .footer-logo {
       height: 48px;
       width: auto;
-      background: #ffffff;
-      border-radius: 8px;
-      padding: 4px;
+      display: block;
     }
 
     .footer-info {
@@ -513,27 +505,27 @@
     </div>
   </header>
 
-  <!-- Hero Principal -->
+  <!-- Banner horizontal de punta a punta (sin recortar altura) -->
+  <div class="banner-full-width">
+    <img src="assets/banner.png" alt="Exploradores del Litoral Banner Horizontal">
+  </div>
+
+  <!-- Hero Principal con Identidad / Logo -->
   <main>
     <section class="hero">
-      <div class="hero-grid">
-        <div class="hero-text-col">
-          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.5rem;">
-            <span class="tag tag-green">PROGRAMA UNL VERDE</span>
-            <span class="tag tag-yellow">JARDÍN LA RONDA · SALA 5 AÑOS</span>
-          </div>
-          <!-- Azo Sans aplicado exclusivamente para el título principal -->
-          <h1 class="hero-title">Exploradores del Litoral</h1>
-          <p class="hero-subtitle">
-            Diseño de experiencia lúdica sobre gestión de residuos para la sala de 5 años del Jardín La Ronda, en el marco del programa UNL Verde.
-          </p>
-        </div>
-        <div class="hero-visual-col">
-          <div class="hero-banner-card">
-            <img src="assets/banner.png" alt="Exploradores del Litoral Banner" class="hero-banner-img">
-          </div>
-        </div>
+      <div class="hero-tags">
+        <span class="tag tag-green">PROGRAMA UNL VERDE</span>
+        <span class="tag tag-yellow">JARDÍN LA RONDA · SALA 5 AÑOS</span>
       </div>
+      
+      <!-- Reemplazo del título de texto por logo-izquierda.png -->
+      <div class="hero-brand">
+        <img src="assets/logo-izquierda.png" alt="Exploradores del Litoral" class="hero-logo-img">
+      </div>
+
+      <p class="hero-subtitle">
+        Diseño de experiencia lúdica sobre gestión de residuos para la sala de 5 años del Jardín La Ronda, en el marco del programa UNL Verde.
+      </p>
     </section>
 
     <!-- Ficha Técnica / Equipo -->
