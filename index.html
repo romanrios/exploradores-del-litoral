@@ -1,549 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Exploradores del Litoral | Diseño de Experiencia Lúdica</title>
-  
-  <style>
-    /* Tipografías locales */
-    @font-face {
-      font-family: 'Azo Sans';
-      src: url('assets/Azo-Sans-Uber-Regular.woff2') format('woff2');
-      font-weight: 400 900;
-      font-style: normal;
-      font-display: swap;
-    }
+  <title>Exploradores del Litoral | Diseño de experiencia lúdica</title>
 
-    @font-face {
-      font-family: 'Inter';
-      src: url('assets/InterVariable.woff2') format('woff2-variations');
-      font-weight: 100 900;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Inter';
-      src: url('assets/InterVariable-Italic.woff2') format('woff2-variations');
-      font-weight: 100 900;
-      font-style: italic;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Roboto Mono';
-      src: url('assets/roboto-mono-latin-wght-normal.woff2') format('woff2');
-      font-weight: 100 700;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Roboto Mono';
-      src: url('assets/roboto-mono-latin-wght-italic.woff2') format('woff2');
-      font-weight: 100 700;
-      font-style: italic;
-      font-display: swap;
-    }
-
-    /* Variables del Sistema de Diseño - Paleta Reducida */
-    :root {
-      --color-verde: #4a7c5a;
-      --color-verde-oscuro: #345c41;
-      --color-verde-suave: #e8efe9;
-      --color-amarillo: #d89f5b;
-      --color-crema: #f3e9d3;
-      --color-crema-claro: #faf6ee;
-      
-      --color-texto: #1f2721;
-      --color-texto-suave: #414f44;
-      --color-borde: rgba(74, 124, 90, 0.22);
-      
-      --font-display: 'Azo Sans', sans-serif;
-      --font-body: 'Inter', sans-serif;
-      --font-mono: 'Roboto Mono', monospace;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      background-color: var(--color-crema);
-      color: var(--color-texto);
-      font-family: var(--font-body);
-      line-height: 1.65;
-      font-size: 1.05rem;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* Banner Full Width de punta a punta */
-    .banner-full-width {
-      width: 100vw;
-      margin-left: calc(-50vw + 50%);
-      line-height: 0;
-      overflow: hidden;
-      background: var(--color-crema);
-      border-bottom: 2px solid var(--color-borde);
-    }
-
-    .banner-full-width img {
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: contain;
-    }
-
-    /* Tags / Badges en Roboto Mono */
-    .tag {
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.4rem 0.8rem;
-      border-radius: 999px;
-      font-weight: 600;
-      line-height: 1;
-    }
-
-    .tag-green {
-      background: var(--color-verde);
-      color: #ffffff;
-    }
-
-    .tag-yellow {
-      background: var(--color-amarillo);
-      color: #1f2721;
-    }
-
-    .tag-outline {
-      border: 1.5px solid var(--color-verde);
-      color: var(--color-verde);
-      background: rgba(255, 255, 255, 0.6);
-    }
-
-    /* Barra Superior Institucional */
-    .top-header {
-      border-bottom: 2px solid var(--color-borde);
-      background: rgba(243, 233, 211, 0.94);
-      backdrop-filter: blur(8px);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      padding: 0.9rem 1.5rem;
-    }
-
-    .top-header-content {
-      max-width: 1140px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
-
-    .brand-meta {
-      font-family: var(--font-mono);
-      font-size: 0.85rem;
-      color: var(--color-verde-oscuro);
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .brand-meta-bullet {
-      color: var(--color-amarillo);
-    }
-
-    /* Hero Principal con Logo */
-    .hero {
-      padding: 3.5rem 1.5rem 2.5rem;
-      max-width: 1140px;
-      margin: 0 auto;
-    }
-
-    .hero-tags {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-brand {
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-logo-img {
-      max-width: min(100%, 460px);
-      height: auto;
-      display: block;
-    }
-
-    .hero-subtitle {
-      font-family: var(--font-body);
-      font-size: clamp(1.15rem, 2.2vw, 1.45rem);
-      color: var(--color-texto);
-      font-weight: 500;
-      line-height: 1.55;
-      max-width: 880px;
-    }
-
-    /* Sección de Video de Personajes */
-    .video-section {
-      padding: 3.5rem 1.5rem 2rem;
-      max-width: 1140px;
-      margin: 0 auto;
-    }
-
-    .video-title {
-      font-family: var(--font-body);
-      font-size: clamp(1.6rem, 3.2vw, 2.2rem);
-      font-weight: 800;
-      color: var(--color-verde);
-      margin-bottom: 1.5rem;
-      letter-spacing: -0.02em;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-
-    .video-wrapper {
-      position: relative;
-      width: 100%;
-      border-radius: 1.25rem;
-      overflow: hidden;
-      background: #000;
-      box-shadow: 0 16px 36px -10px rgba(74, 124, 90, 0.28);
-      border: 3px solid #fff;
-    }
-
-    .video-wrapper video {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: calc(1.25rem - 3px);
-    }
-
-    /* Ficha Técnica / Créditos */
-    .credits-strip {
-      background: var(--color-crema-claro);
-      border-top: 2px solid var(--color-borde);
-      border-bottom: 2px solid var(--color-borde);
-      padding: 2.5rem 1.5rem;
-      margin-top: 1.5rem;
-    }
-
-    .credits-inner {
-      max-width: 1140px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 2rem;
-    }
-
-    .credit-box {
-      border-left: 3.5px solid var(--color-verde);
-      padding-left: 1rem;
-    }
-
-    .credit-box.tutor {
-      border-left-color: var(--color-amarillo);
-    }
-
-    .credit-heading {
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      color: var(--color-verde);
-      text-transform: uppercase;
-      margin-bottom: 0.5rem;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-    }
-
-    .credit-box.tutor .credit-heading {
-      color: var(--color-verde-oscuro);
-    }
-
-    .credit-names {
-      list-style: none;
-      font-family: var(--font-body);
-      font-size: 1.05rem;
-      font-weight: 500;
-      color: var(--color-texto);
-    }
-
-    .credit-names li {
-      margin-bottom: 0.25rem;
-    }
-
-    /* Contenido Principal y Secciones */
-    .content-container {
-      max-width: 1140px;
-      margin: 3.5rem auto 5rem;
-      padding: 0 1.5rem;
-    }
-
-    .section-block {
-      margin-bottom: 4rem;
-    }
-
-    .section-title {
-      font-family: var(--font-body);
-      font-size: 2.1rem;
-      font-weight: 800;
-      color: var(--color-verde);
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      letter-spacing: -0.02em;
-    }
-
-    .section-number {
-      font-family: var(--font-mono);
-      font-size: 1rem;
-      background: var(--color-amarillo);
-      color: #1f2721;
-      padding: 0.2rem 0.6rem;
-      border-radius: 6px;
-      font-weight: 700;
-    }
-
-    .subsection-title {
-      font-family: var(--font-body);
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--color-verde-oscuro);
-      margin: 2.2rem 0 1.1rem;
-      letter-spacing: -0.01em;
-    }
-
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.8rem;
-      margin-top: 1.5rem;
-    }
-
-    .info-card {
-      background: #ffffff;
-      border-radius: 1.25rem;
-      padding: 1.8rem;
-      border: 1px solid var(--color-borde);
-      border-top: 5px solid var(--color-verde);
-      box-shadow: 0 8px 24px -10px rgba(74, 124, 90, 0.12);
-      display: flex;
-      flex-direction: column;
-      gap: 0.8rem;
-    }
-
-    .info-card.accent-yellow {
-      border-top-color: var(--color-amarillo);
-    }
-
-    .card-subtitle {
-      font-family: var(--font-mono);
-      font-size: 0.82rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--color-verde);
-    }
-
-    .card-title {
-      font-family: var(--font-body);
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--color-texto);
-      line-height: 1.3;
-      letter-spacing: -0.01em;
-    }
-
-    .card-text {
-      font-family: var(--font-body);
-      color: var(--color-texto-suave);
-      font-size: 0.98rem;
-      line-height: 1.62;
-    }
-
-    /* Bloques de Énfasis (Pregunta e Hipótesis) */
-    .highlight-banner {
-      background: linear-gradient(135deg, #4a7c5a 0%, #345c41 100%);
-      color: #ffffff;
-      border-radius: 1.25rem;
-      padding: 2.2rem;
-      margin: 2rem 0;
-      box-shadow: 0 14px 30px -10px rgba(74, 124, 90, 0.35);
-    }
-
-    .highlight-tag {
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      color: var(--color-amarillo);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-weight: 700;
-      margin-bottom: 0.6rem;
-      display: block;
-    }
-
-    .highlight-question {
-      font-family: var(--font-body);
-      font-size: clamp(1.2rem, 2.6vw, 1.6rem);
-      line-height: 1.42;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-    }
-
-    /* Antecedentes y Casos Análogos */
-    .reference-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1.4rem;
-      margin-top: 1.5rem;
-    }
-
-    .reference-item {
-      background: #ffffff;
-      border-radius: 1rem;
-      padding: 1.6rem;
-      border-left: 6px solid var(--color-verde);
-      border-right: 1px solid var(--color-borde);
-      border-top: 1px solid var(--color-borde);
-      border-bottom: 1px solid var(--color-borde);
-      box-shadow: 0 6px 18px -8px rgba(74, 124, 90, 0.08);
-    }
-
-    .reference-item.accent-yellow {
-      border-left-color: var(--color-amarillo);
-    }
-
-    .reference-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 0.6rem;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
-    .reference-name {
-      font-family: var(--font-body);
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--color-texto);
-    }
-
-    /* Objetivos en Grilla */
-    .objectives-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-    }
-
-    .objective-card {
-      background: #ffffff;
-      border-radius: 1.25rem;
-      padding: 1.75rem;
-      display: flex;
-      flex-direction: column;
-      border: 1px solid var(--color-borde);
-      border-top: 4px solid var(--color-verde);
-      box-shadow: 0 8px 22px -10px rgba(74, 124, 90, 0.1);
-    }
-
-    .obj-index {
-      font-family: var(--font-mono);
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--color-verde);
-      margin-bottom: 0.75rem;
-      line-height: 1;
-    }
-
-    /* Footer Institucional sin fondo en el logo */
-    footer {
-      background: #202b23;
-      color: #e4ebe6;
-      padding: 3.5rem 1.5rem;
-      border-top: 4px solid var(--color-amarillo);
-    }
-
-    .footer-content {
-      max-width: 1140px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-    }
-
-    .footer-left {
-      display: flex;
-      align-items: center;
-      gap: 1.2rem;
-    }
-
-    .footer-logo {
-      height: 48px;
-      width: auto;
-      display: block;
-    }
-
-    .footer-info {
-      font-family: var(--font-body);
-      font-size: 0.95rem;
-      line-height: 1.45;
-    }
-
-    .footer-copy {
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      color: #9cb1a2;
-    }
-
-    @media (max-width: 600px) {
-      .top-header-content {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .card-grid {
-        grid-template-columns: 1fr;
-      }
-      .footer-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 1.5rem;
-      }
-      .footer-left {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 1rem;
-      }
-      .footer-logo {
-        margin: 0 auto;
-      }
-      .footer-copy {
-        text-align: center;
-      }
-    }
-  </style>
+  <!-- Estilos del Sistema de Diseño -->
+  <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
 
-  <!-- Barra Superior / Metadatos -->
+  <!-- Barra superior / Metadatos -->
   <header class="top-header">
     <div class="top-header-content">
       <div class="brand-meta">
@@ -558,10 +27,10 @@
 
   <!-- Banner horizontal de punta a punta (sin recortar altura) -->
   <div class="banner-full-width">
-    <img src="assets/banner.png" alt="Exploradores del Litoral Banner Horizontal">
+    <img src="assets/banner.png" alt="Exploradores del Litoral banner horizontal">
   </div>
 
-  <!-- Hero Principal con Identidad / Logo -->
+  <!-- Hero principal con identidad / logo -->
   <main>
     <section class="hero">
       <div class="hero-tags">
@@ -569,18 +38,18 @@
         <span class="tag tag-outline">PROGRAMA UNL VERDE</span>
         <span class="tag tag-yellow">JARDÍN LA RONDA · SALA 5 AÑOS</span>
       </div>
-      
-      <!-- Reemplazo del título de texto por logo-izquierda.png -->
+
       <div class="hero-brand">
         <img src="assets/logo-izquierda.png" alt="Exploradores del Litoral" class="hero-logo-img">
       </div>
 
       <p class="hero-subtitle">
-        Diseño de experiencia lúdica sobre gestión de residuos para la sala de 5 años del Jardín La Ronda, en el marco del programa UNL Verde.
+        Diseño de experiencia lúdica sobre gestión de residuos para la sala de 5 años del Jardín La Ronda, en el marco
+        del programa UNL Verde.
       </p>
     </section>
 
-    <!-- Ficha Técnica / Equipo -->
+    <!-- Ficha técnica / Equipo -->
     <section class="credits-strip">
       <div class="credits-inner">
         <div class="credit-box">
@@ -591,9 +60,9 @@
             <li>Gonzalo Rodríguez Ceccato</li>
           </ul>
         </div>
-        
+
         <div class="credit-box">
-          <div class="credit-heading">Equipo Docente</div>
+          <div class="credit-heading">Equipo docente</div>
           <ul class="credit-names">
             <li>Andrea Valsagna</li>
             <li>Laura Badella</li>
@@ -623,7 +92,7 @@
 
     <!-- Contenido 1. Tema -->
     <div class="content-container">
-      
+
       <section class="section-block">
         <h2 class="section-title">
           <span class="section-number">1</span>
@@ -631,62 +100,91 @@
         </h2>
 
         <h3 class="subsection-title">1.1. Fundamentación</h3>
-        
+
         <div class="card-grid">
           <article class="info-card">
-            <span class="card-subtitle">Ecosistema Universitario</span>
+            <span class="card-subtitle">Ecosistema universitario</span>
             <h4 class="card-title">Contexto institucional y territorial</h4>
             <p class="card-text">
-              En el marco de las políticas de sostenibilidad de la Universidad Nacional del Litoral, el programa <strong>UNL Verde</strong> impulsa diversas acciones orientadas al cuidado del entorno y a la concientización ambiental dentro de su comunidad.
+              En el marco de las políticas de sostenibilidad de la Universidad Nacional del Litoral, el programa
+              <strong>UNL Verde</strong> impulsa diversas acciones orientadas al cuidado del entorno y a la
+              concientización ambiental dentro de su comunidad.
             </p>
             <p class="card-text">
-              A través de herramientas comunicacionales como su <em>Decálogo de buenas prácticas para la sostenibilidad</em>, bajo el lema <em>"Pequeñas acciones, grandes cambios"</em>, promueve ejes fundamentales que incluyen la reducción, reutilización y reciclaje (las 3R), la separación de residuos en origen entre secos y húmedos, el cuidado del agua y la energía, y la valoración de los espacios verdes.
+              A través de herramientas comunicacionales como su <em>Decálogo de buenas prácticas para la
+                sostenibilidad</em>, bajo el lema <em>"Pequeñas acciones, grandes cambios"</em>, promueve ejes
+              fundamentales que incluyen la reducción, reutilización y reciclaje (las 3R), la separación de residuos en
+              origen entre secos y húmedos, el cuidado del agua y la energía, y la valoración de los espacios verdes.
             </p>
             <p class="card-text">
-              Dentro de este ecosistema universitario se inserta el <strong>Jardín La Ronda</strong>, institución educativa de nivel inicial de la UNL a la que asisten niñas y niños que transitan sus primeras experiencias de socialización y reconocimiento del espacio escolar cotidiano.
+              Dentro de este ecosistema universitario se inserta el <strong>Jardín La Ronda</strong>, institución
+              educativa de nivel inicial de la UNL a la que asisten niñas y niños que transitan sus primeras
+              experiencias de socialización y reconocimiento del espacio escolar cotidiano.
             </p>
           </article>
 
           <article class="info-card">
-            <span class="card-subtitle">Diagnóstico y Vacancia</span>
-            <h4 class="card-title">Problema de Diseño</h4>
+            <span class="card-subtitle">Diagnóstico y vacancia</span>
+            <h4 class="card-title">Problema de diseño</h4>
             <p class="card-text">
-              El relevamiento de las campañas y piezas informativas actuales de UNL Verde evidencia una vacancia significativa: sus mensajes están codificados de manera exclusiva mediante un lenguaje formal, institucional y adulto, pensado para estudiantes universitarios, docentes y personal no docente. Esta configuración genera una distancia comunicacional que deja fuera a las infancias del Jardín La Ronda, ya que los contenidos sobre gestión de residuos carecen de una reformulación comunicacional y de una mediación pedagógica adaptadas a sus formas de percibir, explorar y aprender a través del juego, la narrativa y los sentidos.
+              El relevamiento de las campañas y piezas informativas actuales de UNL Verde evidencia una vacancia
+              significativa: sus mensajes están codificados de manera exclusiva mediante un lenguaje formal,
+              institucional y adulto, pensado para estudiantes universitarios, docentes y personal no docente. Esta
+              configuración genera una distancia comunicacional que deja fuera a las infancias del Jardín La Ronda, ya
+              que los contenidos sobre gestión de residuos carecen de una reformulación comunicacional y de una
+              mediación pedagógica adaptadas a sus formas de percibir, explorar y aprender a través del juego, la
+              narrativa y los sentidos.
             </p>
             <p class="card-text">
-              Esta brecha resulta aún más relevante al considerar las condiciones materiales de la institución: el Jardín La Ronda ya cuenta en su espacio físico con cestos diferenciados y con una compostera provista por el Ministerio de Ambiente de la Provincia de Santa Fe. Si bien este equipamiento otorga una materialidad real y un enorme potencial educativo al tratamiento de residuos orgánicos en la escuela, el espacio cotidiano carece hoy de un <strong>sistema de dispositivos mediadores</strong> que conecte las iniciativas de UNL Verde con el universo simbólico, cognitivo y sensorial de las salas de 5 años.
+              Esta brecha resulta aún más relevante al considerar las condiciones materiales de la institución: el
+              Jardín La Ronda ya cuenta en su espacio físico con cestos diferenciados y con una compostera provista por
+              el Ministerio de Ambiente de la Provincia de Santa Fe. Si bien este equipamiento otorga una materialidad
+              real y un enorme potencial educativo al tratamiento de residuos orgánicos en la escuela, el espacio
+              cotidiano carece hoy de un <strong>sistema de dispositivos mediadores</strong> que conecte las iniciativas
+              de UNL Verde con el universo simbólico, cognitivo y sensorial de las salas de 5 años.
             </p>
           </article>
         </div>
 
-        <!-- Pregunta Problema -->
+        <!-- Pregunta problema -->
         <div class="highlight-banner">
-          <span class="highlight-tag">Pregunta Problema</span>
+          <span class="highlight-tag">Pregunta problema</span>
           <p class="highlight-question">
-            ¿Cómo puede el Diseño de la Comunicación Visual reformular los contenidos ambientales de UNL Verde (específicamente la gestión de residuos) para favorecer conductas ecológicas cotidianas observables en niñas y niños de sala de 5 años del Jardín La Ronda?
+            ¿Cómo puede el Diseño de la Comunicación Visual reformular los contenidos ambientales de UNL Verde
+            (específicamente la gestión de residuos) para favorecer conductas ecológicas cotidianas observables en niñas
+            y niños de sala de 5 años del Jardín La Ronda?
           </p>
         </div>
 
         <!-- Pertinencia disciplinar -->
         <div class="card-grid" style="margin-top: 2rem;">
           <article class="info-card accent-yellow" style="grid-column: 1 / -1;">
-            <span class="card-subtitle">Mediación Pedagógica Integral</span>
+            <span class="card-subtitle">Mediación pedagógica integral</span>
             <h4 class="card-title">Pertinencia disciplinar e impacto social</h4>
             <p class="card-text">
-              Para dar respuesta a este desafío, el proyecto propone reformular dichos contenidos mediante el diseño de una <strong>experiencia lúdica</strong> que articule recursos visuales, narrativos, táctiles y de interacción sensorial con situaciones concretas de la rutina escolar. De este modo, el Diseño de la Comunicación Visual trasciende la producción de piezas gráficas aisladas o meramente expositivas para operar como un <strong>mediador pedagógico integral</strong>: interviene directamente en la manera en que los contenidos complejos se organizan, se comunican y se experimentan en el territorio.
+              Para dar respuesta a este desafío, el proyecto propone reformular dichos contenidos mediante el diseño de
+              una <strong>experiencia lúdica</strong> que articule recursos visuales, narrativos, táctiles y de
+              interacción sensorial con situaciones concretas de la rutina escolar. De este modo, el Diseño de la
+              Comunicación Visual trasciende la producción de piezas gráficas aisladas o meramente expositivas para
+              operar como un <strong>mediador pedagógico integral</strong>: interviene directamente en la manera en que
+              los contenidos complejos se organizan, se comunican y se experimentan en el territorio.
             </p>
             <p class="card-text">
-              En cuanto a su impacto social e institucional, la propuesta busca dotar a las docentes de una herramienta de diseño situada y con identidad regional que facilite su labor cotidiana dentro de la planificación curricular, promoviendo en las infancias la construcción temprana de hábitos ecológicos y su reconocimiento activo como agentes de cambio dentro de su propia comunidad educativa.
+              En cuanto a su impacto social e institucional, la propuesta busca dotar a las docentes de una herramienta
+              de diseño situada y con identidad regional que facilite su labor cotidiana dentro de la planificación
+              curricular, promoviendo en las infancias la construcción temprana de hábitos ecológicos y su
+              reconocimiento activo como agentes de cambio dentro de su propia comunidad educativa.
             </p>
           </article>
         </div>
 
         <!-- Antecedentes y casos análogos -->
         <div style="margin-top: 3.5rem;">
-          <span class="tag tag-outline">ESTADO DEL ARTE Y VACANCIA</span>
+          <span class="tag tag-outline">Estado del arte y vacancia</span>
           <h3 class="subsection-title" style="margin-top: 0.6rem;">Antecedentes y casos análogos</h3>
           <p style="color: var(--color-texto-suave); margin-bottom: 1.5rem;">
-            El relevamiento de antecedentes teóricos y casos análogos disciplinares permitió identificar proyectos de referencia y delimitar la vacancia específica en la que se inserta la propuesta.
+            El relevamiento de antecedentes teóricos y casos análogos disciplinares permitió identificar proyectos de
+            referencia y delimitar la vacancia específica en la que se inserta la propuesta.
           </p>
 
           <div class="reference-list">
@@ -696,7 +194,12 @@
                 <span class="tag tag-green">Programa Infancias Diversas · UNL</span>
               </div>
               <p class="card-text">
-                En cuanto al abordaje de la accesibilidad y la mediación narrativa en las infancias, aporta un referente clave en la concepción de un sistema donde la narración atraviesa múltiples sentidos al integrar lectura, recursos sonoros, artes plásticas y apoyos visuales (SAAC) concebidos desde una construcción colectiva. Sin embargo, dicho dispositivo se centra en la estimulación de la lectura y el juego libre mediado por la literatura, dejando vacante la articulación de contenidos específicos sobre cuidados ambientales.
+                En cuanto al abordaje de la accesibilidad y la mediación narrativa en las infancias, aporta un referente
+                clave en la concepción de un sistema donde la narración atraviesa múltiples sentidos al integrar
+                lectura, recursos sonoros, artes plásticas y apoyos visuales (SAAC) concebidos desde una construcción
+                colectiva. Sin embargo, dicho dispositivo se centra en la estimulación de la lectura y el juego libre
+                mediado por la literatura, dejando vacante la articulación de contenidos específicos sobre cuidados
+                ambientales.
               </p>
             </div>
 
@@ -706,20 +209,34 @@
                 <span class="tag tag-yellow">Sello Buen Diseño Argentino</span>
               </div>
               <p class="card-text">
-                En cuanto al abordaje lúdico específico de los residuos orgánicos, aporta un referente clave en la personificación de los organismos descomponedores del suelo y en el planteo de mecánicas cooperativas orientadas al aprendizaje del ciclo del compost. Sin embargo, dicho dispositivo está diseñado para un público lector mayor de seis años y se restringe a una dinámica de tablero tradicional, dejando vacante la reformulación multisensorial que requiere la primera infancia en las salas de 5 años.
+                En cuanto al abordaje lúdico específico de los residuos orgánicos, aporta un referente clave en la
+                personificación de los organismos descomponedores del suelo y en el planteo de mecánicas cooperativas
+                orientadas al aprendizaje del ciclo del compost. Sin embargo, dicho dispositivo está diseñado para un
+                público lector mayor de seis años y se restringe a una dinámica de tablero tradicional, dejando vacante
+                la reformulación multisensorial que requiere la primera infancia en las salas de 5 años.
               </p>
             </div>
 
             <div class="reference-item">
               <div class="reference-header">
                 <span class="reference-name">Ludotecas Escolares & Prelibri de Bruno Munari</span>
-                <span class="tag tag-outline">Arquitectura de Kit y Diseño Táctil</span>
+                <span class="tag tag-outline">Arquitectura de kit y diseño táctil</span>
               </div>
               <p class="card-text">
-                Para fundamentar la arquitectura del dispositivo como un sistema autosuficiente dentro del aula, se recuperan los lineamientos del programa <em>Ludotecas Escolares para el Nivel Inicial</em> (Laffranconi y Valiño, 2011) junto con las experiencias de diseño táctil de los <em>Prelibri</em> de Bruno Munari (Campagnaro, 2019). Mientras que los desarrollos de Munari demuestran cómo un conjunto de soportes con texturas, pesos y materiales diversos permite construir secuencias narrativas sin depender de la lectoescritura, el modelo de las ludotecas escolares valida el binomio conformado por un contenedor organizador de piezas y un manual de mediación pedagógica que habilita a las educadoras a conducir la actividad con autonomía.
+                Para fundamentar la arquitectura del dispositivo como un sistema autosuficiente dentro del aula, se
+                recuperan los lineamientos del programa <em>Ludotecas Escolares para el Nivel Inicial</em> (Laffranconi
+                y Valiño, 2011) junto con las experiencias de diseño táctil de los <em>Prelibri</em> de Bruno Munari
+                (Campagnaro, 2019). Mientras que los desarrollos de Munari demuestran cómo un conjunto de soportes con
+                texturas, pesos y materiales diversos permite construir secuencias narrativas sin depender de la
+                lectoescritura, el modelo de las ludotecas escolares valida el binomio conformado por un contenedor
+                organizador de piezas y un manual de mediación pedagógica que habilita a las educadoras a conducir la
+                actividad con autonomía.
               </p>
               <p class="card-text" style="margin-top: 0.8rem;">
-                <strong>Cruce de referentes:</strong> Confirma la pertinencia del presente proyecto, dado que ninguno de los casos relevados articula de manera simultánea la temática del compostaje, la adecuación ergonómica y sensorial para niñas y niños de cinco años, la interfaz de guía docente y la vinculación directa con una compostera escolar real.
+                <strong>Cruce de referentes:</strong> Confirma la pertinencia del presente proyecto, dado que ninguno de
+                los casos relevados articula de manera simultánea la temática del compostaje, la adecuación ergonómica y
+                sensorial para niñas y niños de cinco años, la interfaz de guía docente y la vinculación directa con una
+                compostera escolar real.
               </p>
             </div>
           </div>
@@ -732,7 +249,9 @@
         <div class="highlight-banner">
           <span class="highlight-tag">1.2. Hipótesis proyectual</span>
           <p class="highlight-question">
-            "El diseño de una experiencia lúdica que reformule los contenidos sobre gestión de residuos de UNL Verde mediante códigos visuales y narrativos propios de la infancia favorece la comprensión y la manifestación de conductas ecológicas cotidianas observables en niñas y niños de sala de 5 años del Jardín La Ronda."
+            "El diseño de una experiencia lúdica que reformule los contenidos sobre gestión de residuos de UNL Verde
+            mediante códigos visuales y narrativos propios de la infancia favorece la comprensión y la manifestación de
+            conductas ecológicas cotidianas observables en niñas y niños de sala de 5 años del Jardín La Ronda."
           </p>
         </div>
       </section>
@@ -743,27 +262,29 @@
           <span class="section-number">1.3</span>
           <span>Públicos</span>
         </h2>
-        
+
         <div class="card-grid">
           <article class="info-card">
-            <span class="card-subtitle">Destinatarios Directos</span>
-            <h4 class="card-title">Niñas y Niños de Sala de 5 Años</h4>
+            <span class="card-subtitle">Destinatarios directos</span>
+            <h4 class="card-title">Niñas y niños de sala de 5 años</h4>
             <p class="card-text">
-              Pertenecientes a las salas de 5 años (turnos mañana y tarde) del Jardín La Ronda, quienes interactúan de manera directa con los dispositivos visuales y lúdicos.
+              Pertenecientes a las salas de 5 años (turnos mañana y tarde) del Jardín La Ronda, quienes interactúan de
+              manera directa con los dispositivos visuales y lúdicos.
             </p>
           </article>
 
           <article class="info-card">
-            <span class="card-subtitle">Público Mediador</span>
-            <h4 class="card-title">Equipo Docente</h4>
+            <span class="card-subtitle">Público mediador</span>
+            <h4 class="card-title">Equipo docente</h4>
             <p class="card-text">
-              Conformado por el equipo docente de dichas salas, quienes actúan como un nexo facilitador indispensable para integrar las actividades dentro de la planificación curricular.
+              Conformado por el equipo docente de dichas salas, quienes actúan como un nexo facilitador indispensable
+              para integrar las actividades dentro de la planificación curricular.
             </p>
           </article>
 
           <article class="info-card accent-yellow">
-            <span class="card-subtitle">Comitentes e Instituciones</span>
-            <h4 class="card-title">Autoridades Institucionales</h4>
+            <span class="card-subtitle">Comitentes e instituciones</span>
+            <h4 class="card-title">Autoridades institucionales</h4>
             <p class="card-text">
               Las autoridades del Jardín La Ronda y el Programa UNL Verde, impulsores de la iniciativa ambiental.
             </p>
@@ -781,25 +302,33 @@
         <div class="objectives-grid">
           <div class="objective-card">
             <span class="obj-index">01</span>
-            <span class="tag tag-green" style="align-self: flex-start; margin-bottom: 0.8rem;">SISTEMA VISUAL Y LÚDICO</span>
+            <span class="tag tag-green" style="align-self: flex-start; margin-bottom: 0.8rem;">Sistema visual y
+              lúdico</span>
             <p class="card-text">
-              Configurar el sistema de piezas gráficas y lúdicas del kit bajo criterios de <strong>legibilidad icónica</strong>, <strong>ergonomía táctil</strong> y <strong>estructuración narrativa</strong> orientados a la primera infancia.
+              Configurar el sistema de piezas gráficas y lúdicas del kit bajo criterios de <strong>legibilidad
+                icónica</strong>, <strong>ergonomía táctil</strong> y <strong>estructuración narrativa</strong>
+              orientados a la primera infancia.
             </p>
           </div>
 
           <div class="objective-card">
             <span class="obj-index">02</span>
-            <span class="tag tag-yellow" style="align-self: flex-start; margin-bottom: 0.8rem;">CONDUCTAS OBSERVABLES</span>
+            <span class="tag tag-yellow" style="align-self: flex-start; margin-bottom: 0.8rem;">Conductas
+              observables</span>
             <p class="card-text">
-              Favorecer la comprensión y la manifestación de <strong>conductas ecológicas cotidianas observables</strong> (clasificación de residuos y uso de la compostera) en niñas y niños de 5 años del Jardín La Ronda.
+              Favorecer la comprensión y la manifestación de <strong>conductas ecológicas cotidianas
+                observables</strong> (clasificación de residuos y uso de la compostera) en niñas y niños de 5 años del
+              Jardín La Ronda.
             </p>
           </div>
 
           <div class="objective-card">
             <span class="obj-index">03</span>
-            <span class="tag tag-green" style="align-self: flex-start; margin-bottom: 0.8rem;">USABILIDAD DOCENTE / ALUMNO</span>
+            <span class="tag tag-green" style="align-self: flex-start; margin-bottom: 0.8rem;">Usabilidad docente /
+              alumno</span>
             <p class="card-text">
-              Evaluar el nivel de <strong>usabilidad</strong> y la interacción docente/alumno con los prototipos del diseño de experiencia en condiciones reales de uso.
+              Evaluar el nivel de <strong>usabilidad</strong> y la interacción docente/alumno con los prototipos del
+              diseño de experiencia en condiciones reales de uso.
             </p>
           </div>
         </div>
@@ -808,21 +337,21 @@
     </div>
   </main>
 
-  <!-- Footer Institucional -->
+  <!-- Footer institucional -->
   <footer>
     <div class="footer-content">
       <div class="footer-left">
         <img src="assets/logo-izquierda.png" alt="Logo UNL" class="footer-logo">
         <div class="footer-info">
-          <strong>Exploradores del Litoral</strong><br>
-          Licenciatura en Diseño de la Comunicación Visual · FADU UNL
+          LDCV · FADU UNL
         </div>
       </div>
       <div class="footer-copy">
-        LDCV · Año 2026 · Grupo 09
+        © 2026 Grupo 09<br>
       </div>
     </div>
   </footer>
 
 </body>
+
 </html>
