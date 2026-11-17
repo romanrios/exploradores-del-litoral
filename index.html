@@ -218,22 +218,18 @@
     .video-wrapper {
       position: relative;
       width: 100%;
-      padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
-      height: 0;
-      overflow: hidden;
       border-radius: 1.25rem;
-      background: #111;
+      overflow: hidden;
+      background: #000;
       box-shadow: 0 16px 36px -10px rgba(74, 124, 90, 0.28);
       border: 3px solid #fff;
     }
 
-    .video-wrapper iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
+    .video-wrapper video {
       width: 100%;
-      height: 100%;
-      border: 0;
+      height: auto;
+      display: block;
+      border-radius: calc(1.25rem - 3px);
     }
 
     /* Ficha Técnica / Créditos */
@@ -618,12 +614,10 @@
     <section class="video-section">
       <h2 class="video-title">¡Conocé a Ciro, Tacho y Lita!</h2>
       <div class="video-wrapper">
-        <iframe 
-          src="https://www.youtube-nocookie.com/embed/fwXhj6wt36g?modestbranding=1&rel=0&showinfo=0&iv_load_policy=3" 
-          title="¡Conocé a Ciro, Tacho y Lita!" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-          allowfullscreen>
-        </iframe>
+        <video controls playsinline preload="metadata">
+          <source src="assets/video.mp4" type="video/mp4">
+          Tu navegador no soporta la reproducción de video HTML5.
+        </video>
       </div>
     </section>
 
