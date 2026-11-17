@@ -1,0 +1,10 @@
+fuente display: Azo sans
+resto del texto: Inter
+tags: Roboto Mono
+
+Paleta de colores principal:
+rojo #c84b30
+amarillo #d89f5b
+crema #f3e9d3
+verde #4a7c5a
+azul #3a6b88
