@@ -152,10 +152,16 @@ body {
   max-width: 1140px;
   margin: 0 auto;
   display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.hero-main {
+  display: flex;
   justify-content: space-between;
   align-items: flex-start;
   gap: 2.5rem;
-  position: relative;
+  width: 100%;
 }
 
 .hero-content {
@@ -454,7 +460,6 @@ body {
   border-radius: 1.25rem;
   padding: 1.8rem;
   border: 1px solid var(--color-borde);
-  border-top: 5px solid var(--color-verde);
   box-shadow: 0 8px 24px -10px rgba(74, 124, 90, 0.12);
   display: flex;
   flex-direction: column;
@@ -462,7 +467,7 @@ body {
 }
 
 .info-card.accent-yellow {
-  border-top-color: var(--color-amarillo);
+  /* sin borde superior */
 }
 
 .card-subtitle {
@@ -715,6 +720,27 @@ body {
   transform: translate(2px, -2px);
 }
 
+/* Banner de cierre con Baúl y Personajes pegado al Footer */
+.pre-footer-banner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: 3.5rem;
+  margin-bottom: 0;
+  line-height: 0;
+  overflow: hidden;
+}
+
+.pre-footer-img {
+  max-width: min(100%, 780px);
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  /* Recorte inferior para que apoye directamente contra el footer */
+  margin-bottom: -16%;
+}
+
 /* Footer Institucional sin fondo en el logo */
 footer {
   background: #202b23;
@@ -759,6 +785,30 @@ footer {
 
 /* Responsive / Media Queries */
 @media (max-width: 860px) {
+  .hero-main {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-compass {
+    position: static;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2.2rem auto 0.5rem;
+  }
+
+  .hero-compass-img {
+    width: 120px;
+  }
+
   .about-content-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -807,18 +857,31 @@ footer {
 
   .hero-inner {
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 0;
+  }
+
+  .hero-main {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
   }
 
   .hero-compass {
-    position: absolute;
-    top: -0.5rem;
-    right: 0;
-    opacity: 0.9;
+    position: static;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem auto 0.5rem;
   }
 
   .hero-compass-img {
-    width: 95px;
+    width: 105px;
+    height: auto;
+  }
+
+  .hero-credits {
+    margin-top: 1.8rem;
   }
 
   .footer-content {
