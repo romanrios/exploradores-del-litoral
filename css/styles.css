@@ -306,7 +306,7 @@ h1, h2, h3, h4, h5, h6 {
   background-color: var(--color-amarillo);
   width: 100%;
   padding: 3.5rem 1.5rem 4rem;
-  margin: 0;
+  margin: 4.5rem 0;
   border-top: 1px solid rgba(0, 0, 0, 0.08);
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
@@ -890,11 +890,6 @@ h1, h2, h3, h4, h5, h6 {
   border-top: none;
 }
 
-.parallax-divider.divider-before-video {
-  margin-bottom: 0;
-  border-bottom: none;
-}
-
 .parallax-img {
   position: absolute;
   top: 0;
@@ -936,6 +931,71 @@ h1, h2, h3, h4, h5, h6 {
     animation: none !important;
     transform: translateY(-22%) !important;
   }
+}
+
+/* Sección Trabajo en Progreso */
+.status-section {
+  max-width: 1140px;
+  margin: 0 auto 1rem;
+  padding: 0 1.5rem;
+}
+
+.status-card {
+  max-width: 860px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 1.25rem;
+  padding: 2.2rem 2.2rem;
+  border: 1px solid var(--color-borde);
+  box-shadow: 0 8px 24px -10px rgba(74, 124, 90, 0.12);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-amarillo);
+  border-radius: 50%;
+  display: inline-block;
+  animation: pulse-dot 2s infinite ease-in-out;
+}
+
+@keyframes pulse-dot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+}
+
+.status-title {
+  font-family: var(--font-body);
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+  font-weight: 800;
+  color: var(--color-verde);
+  letter-spacing: -0.02em;
+}
+
+.status-text {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: var(--color-texto);
+  line-height: 1.65;
+  max-width: 680px;
+  text-wrap: pretty;
 }
 
 /* Banner de cierre con Baúl y Personajes pegado al Footer */
@@ -1058,6 +1118,7 @@ footer {
 @media (max-width: 600px) {
   .video-section {
     padding: 2.5rem 0 3rem;
+    margin: 3.5rem 0;
   }
 
   .video-title {
@@ -1072,6 +1133,10 @@ footer {
 
   .video-wrapper video {
     border-radius: 0;
+  }
+
+  .status-card {
+    padding: 1.75rem 1.3rem;
   }
 
   .report-section {
