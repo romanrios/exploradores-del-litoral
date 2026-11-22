@@ -882,7 +882,7 @@ h6 {
 .parallax-divider {
   position: relative;
   width: 100%;
-  height: clamp(190px, 24vw, 290px);
+  height: clamp(230px, 28vw, 360px);
   overflow: clip;
   margin: 4rem 0;
   background-color: var(--color-crema);
@@ -1172,7 +1172,7 @@ footer {
   }
 
   .parallax-divider {
-    height: clamp(160px, 34vw, 220px);
+    height: clamp(190px, 40vw, 260px);
     margin: 3rem 0;
   }
 
