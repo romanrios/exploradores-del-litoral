@@ -72,6 +72,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
 /* Tags / Badges en Roboto Mono */
 .tag {
   font-family: var(--font-mono);
@@ -214,6 +218,8 @@ body {
   font-weight: 400;
   line-height: 1.55;
   max-width: 880px;
+  text-wrap: balance;
+  text-wrap: pretty;
 }
 
 /* Ficha Técnica / Créditos dentro del Hero */
@@ -286,14 +292,14 @@ body {
   overflow: hidden;
   background: #000;
   box-shadow: 0 16px 36px -10px rgba(74, 124, 90, 0.28);
-  border: 3px solid #fff;
+  border: none;
 }
 
 .video-wrapper video {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: calc(1.25rem - 3px);
+  border-radius: 1.25rem;
 }
 
 /* Ficha Técnica / Créditos */
@@ -371,7 +377,7 @@ body {
 
 .about-main-title {
   font-family: var(--font-body);
-  font-size: clamp(1.8rem, 3.2vw, 2.35rem);
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
   font-weight: 800;
   color: var(--color-verde);
   line-height: 1.22;
@@ -419,7 +425,7 @@ body {
 
 .section-title {
   font-family: var(--font-body);
-  font-size: 2.1rem;
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
   font-weight: 800;
   color: var(--color-verde);
   margin-bottom: 1.5rem;
@@ -838,6 +844,25 @@ footer {
 }
 
 @media (max-width: 600px) {
+  .video-section {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .video-title {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .video-wrapper {
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .video-wrapper video {
+    border-radius: 0;
+  }
+
   .report-section {
     gap: 1rem;
   }
