@@ -72,7 +72,12 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   text-wrap: balance;
 }
 
@@ -595,7 +600,8 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-body);
   font-size: clamp(1.15rem, 2.3vw, 1.45rem);
   line-height: 1.55;
-  font-weight: 400; /* sin negrita */
+  font-weight: 400;
+  /* sin negrita */
   color: #ffffff;
   letter-spacing: -0.01em;
 }
@@ -900,7 +906,8 @@ h1, h2, h3, h4, h5, h6 {
   object-fit: cover;
   object-position: center top;
   will-change: transform;
-  transform: translateY(-22%); /* posición equilibrada por defecto */
+  transform: translateY(-22%);
+  /* posición equilibrada por defecto */
 }
 
 /* Animación Parallax conducida por Scroll (Scroll-Driven Animations) */
@@ -908,6 +915,7 @@ h1, h2, h3, h4, h5, h6 {
   from {
     transform: translateY(0%);
   }
+
   to {
     transform: translateY(-44.44%);
   }
