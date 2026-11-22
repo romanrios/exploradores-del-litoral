@@ -142,6 +142,38 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--color-amarillo);
 }
 
+.btn-top-header {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  background-color: var(--color-verde);
+  border: 1.5px solid var(--color-verde-oscuro);
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(74, 124, 90, 0.25);
+}
+
+.btn-top-header:hover {
+  background-color: var(--color-verde-oscuro);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(52, 92, 65, 0.35);
+}
+
+.btn-top-header svg {
+  transition: transform 0.15s ease;
+}
+
+.btn-top-header:hover svg {
+  transform: translate(1px, -1px);
+}
+
 /* Hero Principal con Logo y Fondo Verde */
 .hero {
   background-color: var(--color-verde);
@@ -652,6 +684,107 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1;
 }
 
+/* Sección Nosotros */
+.team-section {
+  max-width: 1140px;
+  margin: 0 auto 5rem;
+  padding: 0 1.5rem;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 861px) {
+  .team-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.team-card {
+  background: #ffffff;
+  border-radius: 1.25rem;
+  padding: 2.2rem 1.6rem;
+  border: 1px solid var(--color-borde);
+  box-shadow: 0 8px 24px -10px rgba(74, 124, 90, 0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px -10px rgba(74, 124, 90, 0.2);
+}
+
+.team-avatar-wrap {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+  border: none;
+  box-shadow: 0 6px 18px rgba(74, 124, 90, 0.15);
+  flex-shrink: 0;
+  background-color: var(--color-crema);
+}
+
+.team-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.team-name {
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-verde-oscuro);
+  margin-bottom: 1.1rem;
+  line-height: 1.3;
+}
+
+.team-linkedin-btn {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--color-verde-oscuro);
+  background: var(--color-verde-suave);
+  border: 1.5px solid rgba(74, 124, 90, 0.3);
+  padding: 0.45rem 1.1rem;
+  border-radius: 999px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+  margin-top: auto;
+}
+
+.team-linkedin-btn:hover {
+  background: var(--color-verde);
+  color: #ffffff;
+  border-color: var(--color-verde);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(74, 124, 90, 0.25);
+}
+
+.linkedin-icon {
+  flex-shrink: 0;
+  transition: transform 0.15s ease;
+}
+
+.team-linkedin-btn:hover .linkedin-icon {
+  transform: scale(1.1);
+}
+
 /* Sección Lee el Informe Completo */
 .report-section {
   max-width: 1140px;
@@ -724,6 +857,62 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-report:hover .btn-icon {
   transform: translate(2px, -2px);
+}
+
+/* Separadores Parallax con Ilustraciones de Personajes */
+.parallax-divider {
+  position: relative;
+  width: 100%;
+  height: clamp(190px, 24vw, 290px);
+  overflow: clip;
+  margin: 4.5rem 0;
+  background-color: var(--color-crema);
+  border-top: 1px solid var(--color-borde);
+  border-bottom: 1px solid var(--color-borde);
+  box-shadow: inset 0 8px 18px rgba(0, 0, 0, 0.05), inset 0 -8px 18px rgba(0, 0, 0, 0.05);
+}
+
+.parallax-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 180%;
+  min-height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  will-change: transform;
+  transform: translateY(-22%); /* posición equilibrada por defecto */
+}
+
+/* Animación Parallax conducida por Scroll (Scroll-Driven Animations) */
+@keyframes parallax-travel {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(-44.44%);
+  }
+}
+
+@supports ((animation-timeline: view()) and (animation-range: entry)) {
+  .parallax-divider {
+    view-timeline-name: --parallax-divider;
+    view-timeline-axis: block;
+  }
+
+  .parallax-img {
+    animation: parallax-travel linear both;
+    animation-timeline: --parallax-divider;
+    animation-range: entry 0% exit 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .parallax-img {
+    animation: none !important;
+    transform: translateY(-22%) !important;
+  }
 }
 
 /* Banner de cierre con Baúl y Personajes pegado al Footer */
@@ -872,12 +1061,23 @@ footer {
   }
 
   .top-header-content {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .card-grid {
     grid-template-columns: 1fr;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .parallax-divider {
+    height: clamp(160px, 34vw, 220px);
+    margin: 3rem 0;
   }
 
   .hero-inner {
