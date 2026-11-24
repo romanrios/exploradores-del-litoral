@@ -1143,15 +1143,15 @@ footer {
   }
 
   .brand-meta {
-    font-size: clamp(0.64rem, 2.4vw, 0.78rem);
+    font-size: clamp(0.62rem, 2.3vw, 0.76rem);
     gap: 0.35rem;
     flex-shrink: 1;
     min-width: 0;
   }
 
   .btn-top-header {
-    font-size: 0.7rem;
-    padding: 0.32rem 0.65rem;
+    font-size: clamp(0.65rem, 2.3vw, 0.72rem);
+    padding: 0.32rem 0.6rem;
     gap: 0.35rem;
   }
 
